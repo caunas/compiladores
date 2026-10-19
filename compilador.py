@@ -183,20 +183,10 @@ lexer = lex.lex()
 
 # Exemplo de utilização
 if __name__ == '__main__':
-    # BTW: Preferível utilizar um arquivo .c externo e fazer o python ler o arquivo
-    codigo = """
-    int main() {
-        int idade = 20;
-        float altura = 1.75;
-
-        // Verificar a idade
-        if (idade >= 18 && altura > 1.5) {
-            printf("Maior de idade");
-        }
-
-        return 0;
-    }
-    """
+    
+    # BTW: Atualizar para suportar o nome do arquivo via args
+    with open('hello.c', 'r') as f:
+        codigo = f.read()
 
     lexer.input(codigo)
 
