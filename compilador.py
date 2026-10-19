@@ -1,4 +1,6 @@
 
+# PLY é uma lib própria para criação de compiladores.
+# .lex é o módulo de análise léxica
 import ply.lex as lex
 
 # Palavras reservadas da linguagem C
@@ -162,7 +164,7 @@ def t_newline(t):
     t.lexer.lineno += len(t.value)
 
 
-# Ignorar espaços, tabulações e retornos de carro
+# Ignorar espaços, tabulações e etc
 t_ignore = ' \t\r'
 
 
@@ -175,12 +177,13 @@ def t_error(t):
     t.lexer.skip(1)
 
 
-# Construir o analisador léxico
+# Instancia do o analisador léxico em um objeto
 lexer = lex.lex()
 
 
 # Exemplo de utilização
 if __name__ == '__main__':
+    # BTW: Preferível utilizar um arquivo .c externo e fazer o python ler o arquivo
     codigo = """
     int main() {
         int idade = 20;
